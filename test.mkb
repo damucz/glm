@@ -1,0 +1,11 @@
+files
+{
+	[source]
+	("test/core")
+	core_type_int.cpp
+}
+
+subprojects
+{
+	glm
+}

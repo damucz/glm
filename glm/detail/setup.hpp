@@ -52,9 +52,13 @@
 #define GLM_PLATFORM_UNIX			0x00400000
 #define GLM_PLATFORM_QNXNTO			0x00800000
 #define GLM_PLATFORM_WINCE			0x01000000
+#define GLM_PLATFORM_MARMALADE		0x02000000
 
 #ifdef GLM_FORCE_PLATFORM_UNKNOWN
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
+#elif defined(__S3E__)
+#   define GLM_PLATFORM GLM_PLATFORM_MARMALADE
+#   define __extension__
 #elif defined(__QNXNTO__)
 #	define GLM_PLATFORM GLM_PLATFORM_QNXNTO
 #elif defined(__APPLE__)
@@ -186,6 +190,9 @@
 // Force generic C++ compiler
 #ifdef GLM_FORCE_COMPILER_UNKNOWN
 #	define GLM_COMPILER GLM_COMPILER_UNKNOWN
+
+#elif defined(__S3E__)
+#   define GLM_COMPILER GLM_COMPILER_GCC48
 
 #elif defined(__INTEL_COMPILER)
 #	if __INTEL_COMPILER == 900

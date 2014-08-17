@@ -28,7 +28,9 @@
 
 #include "../geometric.hpp"
 #include <limits>
-#include <type_traits>
+#if (!(GLM_PLATFORM & GLM_PLATFORM_MARMALADE))
+#   include <type_traits>
+#endif
 
 namespace glm{
 namespace detail
